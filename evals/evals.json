@@ -1,0 +1,87 @@
+{
+  "skill_name": "next-skill-navigator",
+  "evals": [
+    {
+      "id": 0,
+      "name": "tdd-after-billing-logic",
+      "prompt": "Je viens de finir d'écrire la logique de calcul de TVA dans src/billing/vat.ts de mon app Next.js (taux par pays, arrondi au centime, exonération B2B intra-UE). Pas encore de tests. Et maintenant ?",
+      "expected_output": "Bloc « Prochaine étape » avec une suggestion TDD ciblant vat.ts, et une ligne 🧠 recommandant Sonnet 5 à effort medium ou high (spec claire, tests rattrapent), avec les commandes /model et /effort si le modèle diffère de la session.",
+      "files": [],
+      "assertions": [
+        "Le bloc « 💡 **Prochaine étape** » est présent, précédé d'un séparateur ---",
+        "Le bloc contient 1 à 3 suggestions numérotées, jamais 4 ou plus",
+        "Chaque suggestion est suivie d'une ligne 🧠 indentée donnant un modèle et (sauf Haiku) un effort",
+        "Le modèle recommandé est l'un des quatre modèles courants : Haiku 4.5, Sonnet 5, Opus 5, Fable 5.1",
+        "L'effort affiché appartient à l'échelle low / medium / high / xhigh / max",
+        "Si le modèle recommandé diffère de celui de la session, la ligne 🧠 donne les commandes /model <alias> et /effort <niveau> ; s'il est identique, elle indique « session courante » sans commande",
+        "La ligne 🧠 contient une raison courte (3-8 mots) liée à la réversibilité ou à la nature de la tâche",
+        "Le skill suggéré existe réellement dans ~/.claude/skills",
+        "La ligne 🧠 recommande Sonnet 5 (ni Opus, ni Fable, ni Haiku) pour le TDD sur vat.ts",
+        "L'effort recommandé est medium ou high",
+        "La commande /model sonnet est fournie (la session tourne sur Fable 5.1)",
+        "La raison de la suggestion cite vat.ts ou la logique de TVA"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "security-before-prod-launch",
+      "prompt": "On lance en prod vendredi. Le checkout Stripe est branché dans app/api/checkout/route.ts et les webhooks dans app/api/webhooks/stripe/route.ts. On va attaquer la sécurité.",
+      "expected_output": "Bloc avec un skill d'audit sécu ciblant les routes de paiement, ligne 🧠 recommandant Opus 5 à effort high ou max (faille = irréversible en prod), jamais Haiku ni Sonnet pour l'audit.",
+      "files": [],
+      "assertions": [
+        "Le bloc « 💡 **Prochaine étape** » est présent, précédé d'un séparateur ---",
+        "Le bloc contient 1 à 3 suggestions numérotées, jamais 4 ou plus",
+        "Chaque suggestion est suivie d'une ligne 🧠 indentée donnant un modèle et (sauf Haiku) un effort",
+        "Le modèle recommandé est l'un des quatre modèles courants : Haiku 4.5, Sonnet 5, Opus 5, Fable 5.1",
+        "L'effort affiché appartient à l'échelle low / medium / high / xhigh / max",
+        "Si le modèle recommandé diffère de celui de la session, la ligne 🧠 donne les commandes /model <alias> et /effort <niveau> ; s'il est identique, elle indique « session courante » sans commande",
+        "La ligne 🧠 contient une raison courte (3-8 mots) liée à la réversibilité ou à la nature de la tâche",
+        "Le skill suggéré existe réellement dans ~/.claude/skills",
+        "La ligne 🧠 recommande Opus 5 ou Fable 5.1 pour l'audit de sécurité, jamais Haiku ni Sonnet",
+        "L'effort recommandé est high, xhigh ou max",
+        "La raison de la suggestion cite les routes checkout ou webhooks Stripe"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "stubborn-bug-after-opus-failed",
+      "prompt": "Bug d'état dans le panier : parfois les quantités se dédoublent après un refresh de la page. J'ai déjà passé deux heures dessus avec Opus en xhigh sans trouver la cause. Qu'est-ce que je lance ?",
+      "expected_output": "Bloc avec un skill de debug systématique, ligne 🧠 recommandant Fable 5.1 (Opus a déjà échoué) à effort xhigh ou max, avec /model fable.",
+      "files": [],
+      "assertions": [
+        "Le bloc « 💡 **Prochaine étape** » est présent, précédé d'un séparateur ---",
+        "Le bloc contient 1 à 3 suggestions numérotées, jamais 4 ou plus",
+        "Chaque suggestion est suivie d'une ligne 🧠 indentée donnant un modèle et (sauf Haiku) un effort",
+        "Le modèle recommandé est l'un des quatre modèles courants : Haiku 4.5, Sonnet 5, Opus 5, Fable 5.1",
+        "L'effort affiché appartient à l'échelle low / medium / high / xhigh / max",
+        "Si le modèle recommandé diffère de celui de la session, la ligne 🧠 donne les commandes /model <alias> et /effort <niveau> ; s'il est identique, elle indique « session courante » sans commande",
+        "La ligne 🧠 contient une raison courte (3-8 mots) liée à la réversibilité ou à la nature de la tâche",
+        "Le skill suggéré existe réellement dans ~/.claude/skills",
+        "La ligne 🧠 recommande Fable 5.1 parce qu'Opus a déjà échoué",
+        "La commande /model fable est fournie (la session tourne sur Opus 5)",
+        "L'effort recommandé est xhigh ou max"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "parallel-sprint-tickets-subagents",
+      "prompt": "J'ai 4 tickets indépendants du sprint à implémenter (export CSV des factures, page profil, endpoint /api/health, i18n du footer). Je veux les paralléliser avec des sous-agents plutôt que de les faire un par un.",
+      "expected_output": "Bloc avec subagent-driven-development ou dispatching-parallel-agents, ligne 🧠 donnant le modèle de l'orchestrateur (Opus) ET celui des sous-agents (sonnet pour l'implémentation cadrée, haiku pour l'exploration), sans effort affiché pour haiku.",
+      "files": [],
+      "assertions": [
+        "Le bloc « 💡 **Prochaine étape** » est présent, précédé d'un séparateur ---",
+        "Le bloc contient 1 à 3 suggestions numérotées, jamais 4 ou plus",
+        "Chaque suggestion est suivie d'une ligne 🧠 indentée donnant un modèle et (sauf Haiku) un effort",
+        "Le modèle recommandé est l'un des quatre modèles courants : Haiku 4.5, Sonnet 5, Opus 5, Fable 5.1",
+        "L'effort affiché appartient à l'échelle low / medium / high / xhigh / max",
+        "Si le modèle recommandé diffère de celui de la session, la ligne 🧠 donne les commandes /model <alias> et /effort <niveau> ; s'il est identique, elle indique « session courante » sans commande",
+        "La ligne 🧠 contient une raison courte (3-8 mots) liée à la réversibilité ou à la nature de la tâche",
+        "Le skill suggéré existe réellement dans ~/.claude/skills",
+        "La ligne 🧠 donne un modèle pour l'orchestrateur ET un modèle pour les sous-agents",
+        "Les sous-agents d'implémentation sont en sonnet (pas opus ni fable)",
+        "Aucun niveau d'effort n'est attaché à haiku",
+        "La suggestion pointe vers un skill de parallélisation par sous-agents (subagent-driven-development ou dispatching-parallel-agents)"
+      ]
+    }
+  ]
+}
