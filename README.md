@@ -77,7 +77,7 @@ Le détail complet, avec les tarifs, est dans [`models.md`](models.md).
 ### Ce qu'il vous faut
 
 - **Claude Code** installé
-- **macOS ou Linux** (le script d'installation est écrit en bash)
+- **macOS, Linux, ou Windows** (le script d'installation est écrit en bash — sur Windows, utilisez Git Bash ou WSL, voir plus bas)
 - **git** (tapez `git --version` dans un terminal pour vérifier)
 
 ### Option 1 — Installation complète *(recommandée)*
@@ -110,6 +110,28 @@ git clone https://github.com/gabriel-delavaud/next-skill-navigator.git ~/.claude
 Puis redémarrez Claude Code.
 
 **La différence :** le skill est disponible, vous pouvez le lancer avec `/next-skill-navigator`, et Claude peut le déclencher de lui-même quand votre demande correspond à sa description. Mais Claude n'a pas reçu la consigne de s'en servir **systématiquement**.
+
+### Installation sur Windows
+
+`install.sh` est un script bash : Windows n'a pas nativement de quoi l'exécuter. Deux façons d'y arriver :
+
+**Git Bash *(recommandé, aucune installation de plus)***
+
+[Git pour Windows](https://git-scm.com/download/win) installe l'exécutable `git` **et** un terminal Git Bash capable d'exécuter des scripts bash. Ouvrez **Git Bash** (menu Démarrer → « Git Bash ») et collez exactement les mêmes commandes que l'option 1 ou l'option 2 ci-dessus — elles fonctionnent sans aucune modification.
+
+**WSL (Windows Subsystem for Linux)**
+
+Si vous avez déjà WSL (`wsl --install` dans PowerShell en administrateur si ce n'est pas le cas, puis redémarrez), ouvrez un terminal WSL (Ubuntu par défaut) et suivez les instructions macOS/Linux ci-dessus telles quelles : `~/.claude/skills/` y désigne le dossier de votre utilisateur Linux, qui est bien celui que lit Claude Code sous WSL.
+
+**PowerShell, sans Git Bash ni WSL**
+
+Seule l'option 2 (installation minimale) est possible sans bash, car elle se limite à un `git clone`. PowerShell n'interprète pas `~`, remplacez-le par `$HOME` :
+
+```powershell
+git clone https://github.com/gabriel-delavaud/next-skill-navigator.git "$HOME\.claude\skills\next-skill-navigator"
+```
+
+Puis redémarrez Claude Code. L'option 1 (script `install.sh`, ajout automatique du paragraphe dans `CLAUDE.md`) nécessite Git Bash ou WSL : sans bash, faites-le à la main en ajoutant vous-même le paragraphe **« Navigation méthodologique — suggérer est le défaut »** (visible plus haut dans le bloc de code de la section *À quoi ça sert ?*) à la fin de `%USERPROFILE%\.claude\CLAUDE.md`.
 
 ### Vérifier que ça marche
 
@@ -161,10 +183,20 @@ Vous devez voir une phrase qui nomme la phase du projet, suivie d'un bloc **💡
 rm -rf ~/.claude/skills/next-skill-navigator
 ```
 
-Si vous aviez pris l'option 1, ouvrez aussi `~/.claude/CLAUDE.md` et supprimez le paragraphe **« Navigation méthodologique — suggérer est le défaut »**. Si vous n'avez rien modifié d'autre dans ce fichier depuis l'installation, vous pouvez à la place restaurer la sauvegarde :
+Sous Windows en PowerShell (sans Git Bash ni WSL) :
+
+```powershell
+Remove-Item -Recurse -Force "$HOME\.claude\skills\next-skill-navigator"
+```
+
+Si vous aviez pris l'option 1, ouvrez aussi `~/.claude/CLAUDE.md` (`%USERPROFILE%\.claude\CLAUDE.md` sous Windows) et supprimez le paragraphe **« Navigation méthodologique — suggérer est le défaut »**. Si vous n'avez rien modifié d'autre dans ce fichier depuis l'installation, vous pouvez à la place restaurer la sauvegarde :
 
 ```bash
 mv ~/.claude/CLAUDE.md.bak ~/.claude/CLAUDE.md
+```
+
+```powershell
+Move-Item -Force "$HOME\.claude\CLAUDE.md.bak" "$HOME\.claude\CLAUDE.md"
 ```
 
 ---
