@@ -3,7 +3,7 @@
 Généré automatiquement depuis `~/.claude/skills/` — chaque description est reprise du
 `SKILL.md` réel du skill, jamais réécrite de mémoire.
 
-**220 skills** au total. Ce fichier est un **raccourci**, pas la source de vérité :
+**221 skills** au total. Ce fichier est un **raccourci**, pas la source de vérité :
 le catalogue vivant fait foi. Vérifie toujours l'existence d'un skill avant de le citer.
 
 > Régénérer après chaque fournée d'installations, sinon ce fichier prend du retard.
@@ -62,7 +62,7 @@ le catalogue vivant fait foi. Vérifie toujours l'existence d'un skill avant de 
 - `/two-factor-authentication-best-practices` : Configure TOTP authenticator apps, send OTP codes via email/SMS, manage backup codes, handle trusted devices,…
 
 ## Phase 3 : Design Système, UI/UX & Intégration Frontend
-*29 skills*
+*30 skills*
 
 - `/accessibility` : Audit and improve web accessibility following WCAG 2.2 guidelines.
 - `/animate` : Build an animation from scratch, making the decisions in the order that determines whether it feels right —…
@@ -70,6 +70,7 @@ le catalogue vivant fait foi. Vérifie toujours l'existence d'un skill avant de 
 - `/banner-design` : Design banners for social media, ads, website heroes, creative assets, and print.
 - `/canvas-design` : Create beautiful visual art in .png and .pdf documents using design philosophy.
 - `/design` : Comprehensive design skill: brand identity, design tokens, UI styling, logo generation (55 styles, Gemini,…
+- `/design-expert` : Utilise ce skill pour toute décision de goût visuel sur un site ou une app web, même petite et concrète,…
 - `/design-system` : Token architecture, component specifications, and slide generation.
 - `/design-taste-frontend` : Anti-slop frontend skill for landing pages, portfolios, and redesigns.
 - `/emil-design-eng` : This skill encodes Emil Kowalski's philosophy on UI polish, component design, animation decisions, and the…
